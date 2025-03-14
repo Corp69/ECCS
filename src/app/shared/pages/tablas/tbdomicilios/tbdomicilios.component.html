@@ -1,0 +1,100 @@
+@if( mdleliminar == true  ) {
+    <app-mdleliminar
+      [mdleliminar]="mdleliminar"
+      [_tabla]="_tabla"
+      [_id]="_id"
+      (_rowconfirmacion)="eliminacion($event)"
+      />
+  }
+  <p-toast position="top-center" key="tc"></p-toast>
+
+  <p-blockUI [blocked]="Ariesblocked"></p-blockUI>
+  <p-divider></p-divider>
+    <p-table
+        [value]="DataSource"
+        dataKey="id"
+        [tableStyle]="{ 'min-width': '75rem' }"
+        [paginator]="true"
+        [rows]="10"
+        [rowsPerPageOptions]="[5,10,25]"
+        [paginator]="true">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 4rem"></th>
+                <th style="width: 4rem"></th>
+
+                <th pSortableColumn="id">#
+                  <p-sortIcon field="id">#</p-sortIcon>
+                </th>
+
+                <th pSortableColumn="calle">Calle
+                  <p-sortIcon field="calle"></p-sortIcon>
+                </th>
+                <th pSortableColumn="num_ext"> Numero Exterior
+                  <p-sortIcon field="num_ext"></p-sortIcon>
+                </th>
+                <th pSortableColumn="num_int"> Numero Interior
+                  <p-sortIcon field="num_ext"></p-sortIcon>
+                </th>
+                <th pSortableColumn="cp"> Codigo Postal
+                  <p-sortIcon field="cp"></p-sortIcon>
+                </th>
+                <th pSortableColumn="estado"> Estado
+                  <p-sortIcon field="estado"></p-sortIcon>
+                </th>
+                <th pSortableColumn="municipio"> Municipio
+                  <p-sortIcon field="municipio"></p-sortIcon>
+                </th>
+                <th pSortableColumn="localidad"> Localidad
+                  <p-sortIcon field="localidad"></p-sortIcon>
+                </th>
+                <th pSortableColumn="colonia"> Colonia
+                  <p-sortIcon field="colonia"></p-sortIcon>
+                </th>
+                <th pSortableColumn="activo"> Activo
+                  <p-sortIcon field="activo"></p-sortIcon>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-DataSource>
+            <tr>
+                <td>
+                  <button
+                  pTooltip="Modificar: Registro."
+                  tooltipPosition="top"
+                  (click)="ModificarRow(DataSource)"
+                  pButton
+                  icon="pi pi-file-edit"
+                  type="button"
+                  class="p-button-Info">
+                </button>
+                </td>
+                <td>
+                  <button
+                    pTooltip="Eliminar: Registro."
+                    tooltipPosition="top"
+                    (click)="eliminarRow(DataSource)"
+                    pButton
+                    icon="pi pi-trash"
+                    type="button"
+                    class="p-button-danger">
+                  </button>
+                </td>
+                <td> {{DataSource.id}} </td>
+                <td> {{DataSource.calle}} </td>
+                <td> {{DataSource.num_ext}} </td>
+                <td> {{DataSource.num_int}} </td>
+                <td> {{DataSource.cp}} </td>
+                <td> {{DataSource.estado}} </td>
+                <td> {{DataSource.municipio}} </td>
+                <td> {{DataSource.localidad}} </td>
+                <td> {{DataSource.colonia}} </td>
+                <td [innerHTML]="DataSource.activo"></td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="8">No se encontraron registros.</td>
+            </tr>
+        </ng-template>
+    </p-table>

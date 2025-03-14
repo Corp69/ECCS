@@ -1,0 +1,76 @@
+<p-divider align="left">
+    <div class="inline-flex align-items-center">
+        <i class="pi pi-search" style="font-size: 2rem"></i>
+        <b>Busquedas:</b>
+    </div>
+</p-divider>
+<!-- Agregar Informcion del formulario -->
+<form [formGroup]="frm" autocomplete="off">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="flex flex-column gap-2">
+                <label>CATALOGO:</label>
+                <input pInputText disabled="true" pTooltip="Se Realiza Busqueda. " tooltipPosition="bottom"
+                    type="text" [value]="tabla" pInputText placeholder="Vacio" />
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="flex flex-column gap-2">
+                <label>Descripcion / Codigo:</label>
+                <input pInputText
+                    pTooltip="Escribir Codigo O Descripcion 3 Caracteres Minimo Para Buscar" tooltipPosition="bottom"
+                    formControlName="descripcion" type="text"  
+                    pInputText placeholder="Vacio" />
+                <p-message severity="error" text="Campo Es Obligatorio "
+                    *ngIf="frm.controls['descripcion'].invalid">
+                </p-message>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <label>Realizar Busqueda</label>
+            <br>
+            <p-button 
+            [disabled]="frm.invalid" 
+            (click)="buscarinfo()" 
+            pTooltip="Realizar Busqeda." 
+            severity="info"
+            icon="pi pi-plus" 
+            label="Ingresar" 
+            tooltipPosition="bottom">
+        </p-button>
+
+
+
+        </div>
+    </div>
+</form>
+
+<p-card *ngIf="DataSource != null " header="Resultados">
+    <p-table [value]="DataSource" dataKey="id"
+         [tableStyle]="{ 'min-width': '75rem' }"
+        (selectionChange)="onSelectionChange($event)"
+         (selectAllChange)="onSelectAllChange($event)" [paginator]="true"
+        [rows]="10" [rowsPerPageOptions]="[5,10,25]" [paginator]="true">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 4rem"></th>
+                <th *ngFor="let column of DataSourceColumnas" 
+                pSortableColumn="{{column}}">{{column}}<p-sortIcon
+                        field="{{column}}"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-DataSource>
+            <tr>
+                <td>
+                    <p-tableCheckbox [value]="DataSource"></p-tableCheckbox>
+                </td>
+                <td *ngFor="let value of Obtenervalor(DataSource)">{{ value }}</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="8">No se encontraron registros.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>

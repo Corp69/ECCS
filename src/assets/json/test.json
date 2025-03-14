@@ -1,0 +1,98 @@
+{
+    "Comprobante": {
+      "Serie": "A",                             ----- ya esta tipo_comprobante
+      "Folio": "1",                             ----- ya esta el folio del comprobante y tipode comprobante
+      "Fecha": "2021-06-08T09:00:01",           ----- ya esta fecha 
+      "FormaPago": "01",                        ----- ya esta forma de pago
+      "NoCertificado": "30001000000400002434",
+      "CondicionesDePago": "NA",                    
+      "SubTotal": "1.00",
+      "Moneda": "MXN",                         ----- ya esta ECCS_MONEDA
+      "TipoCambio": "1",                       ----- ya esta ECCS_MONEDA
+      "Total": "1.16",
+      "TipoDeComprobante": "I",                ----- ya esta 
+      "MetodoPago": "PUE",                     ----- ya esta dentro
+      "LugarExpedicion": "45079",              ---- cliente  ---- sale del domicilio. --- cp 
+      "CfdiRelacionados": {
+        "TipoRelacion": "04",
+        "CfdiRelacionado": [
+          "FFFFFFFF-77A8-4092-80BA-72F039C229E2"
+          ]
+      },                                       ---  agregamos la tabla relacionados cfdi_relacionado
+      "Emisor": {
+        "Rfc": "EKU9003173C9",
+        "Nombre": "Soluciones Fiscales Facturalo S DE RL DE CV",
+        "RegimenFiscal": "601"
+      },                                 ----------- emisor es la empresa... 
+      "Receptor": {
+        "Rfc": "XAXX010101000",
+        "Nombre": "PÚBLICO EN GENERAL",
+        "UsoCFDI": "G01"
+      },                                 ----------- receptor cliente empleado proveedor... 
+      "Conceptos": [
+        {
+          "ClaveProdServ": "01010101",        ----   producto
+          "NoIdentificacion": "miclave",      ----   codigo de mi producto 
+          
+          "Cantidad": "1",                  
+
+          "ClaveUnidad": "F52",             ---     ya esta mapaeado
+          "Unidad": "TONELADA",             ------  ya esta sat aduana
+          "Descripcion": "ACERO",           ------  ya esta mapeado
+
+          "ValorUnitario": "1.00",          ------  eccs_producto_servicio_precios
+          "Importe": "1.00",
+          "Impuestos":
+          {
+            "Traslados": [
+              {
+                "Base": "1.00",
+                "Impuesto": "002",
+                "TipoFactor": "Tasa",
+                "TasaOCuota": "0.160000",
+                "Importe": "0.16"
+              }
+            ]
+          }
+        }
+      ],                                --- producto en proceso
+      "Impuestos": {    
+        "TotalImpuestosTrasladados": "0.16",
+        "Traslados": [
+          {
+            "Impuesto": "002",
+            "TipoFactor": "Tasa",
+            "TasaOCuota": "0.160000",
+            "Importe": "0.16"
+          }
+        ]
+      }                                 --- impuestos en proceso
+    },
+    "CamposPDF": {
+      "tipoComprobante": "FACTURA",
+      "Comentarios": "Aquí van los comentarios de la factura",
+      "calleEmisor": "103 ORIENTE",
+      "noExteriorEmisor": "101",
+      "noInteriorEmisor": "3",
+      "coloniaEmisor": "Los Gavilanes",
+      "codigoPostalEmisor": "72000",
+      "municipioEmisor": "Puebla",
+      "estadoEmisor": "Puebla",
+      "paisEmisor": "México",
+      "calleReceptor": "24 SUR",
+      "noExteriorReceptor": "10120",
+      "noInteriorReceptor": "S/N",
+      "coloniaReceptor": "Allende",
+      "codigoPostalReceptor": "85850",
+      "municipioReceptor": "Navojoa",
+      "estadoReceptor": "Sonora",
+      "paisReceptor": "México"
+    },
+    "logo" : ""
+}
+
+
+
+        
+compronate                              comprobante_CfdiRelacionados
+id 1                                     1 id-  1 id comprobante  |   4 tipo de relacion  | FFFFFFFF-77A8-4092-80BA-72F039C229E2 UUIID cfdi relacionado 

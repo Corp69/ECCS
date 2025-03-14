@@ -1,0 +1,48 @@
+<hr>
+<p-toast position="top-center" key="tc"></p-toast>
+<p-blockUI [blocked]="Ariesblocked"></p-blockUI>
+<p-card header="">
+<!-- Agregar Informcion del formulario -->
+<div class="inline-flex align-items-center">
+    <i class="pi pi-search" style="font-size: 2rem"></i>
+    <b>Busquedas:</b>
+</div>
+<p-divider></p-divider>
+<!-- Agregar Informcion del formulario -->
+<form [formGroup]="frm" autocomplete="off">
+<div class="row">
+    <div class="col-sm-3">
+        <div class="flex flex-column gap-2">
+            <label>Nombre / RFC:</label>
+            <input pInputText
+                pTooltip="Escribe almenos 3 caracteres para realizar la busqueda." 
+                tooltipPosition="bottom"
+                formControlName="descripcion" 
+                type="text"  
+                pInputText placeholder="Vacio" />
+            <p-message 
+                 severity="error" 
+                 text="Campo Es Obligatorio | Escrbire 3 Caracteres."
+                *ngIf="frm.controls['descripcion'].invalid">
+            </p-message>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <label>Realizar Busqueda</label>
+        <br>
+        <p-button 
+        [disabled]="frm.invalid" 
+        (click)="buscarinfo()" 
+        pTooltip="Realizar Busqueda." 
+        severity="info"
+        icon="pi pi-plus" 
+        label="Buscar" 
+        tooltipPosition="bottom">
+    </p-button>
+    </div>
+</div>
+</form>
+<p-divider></p-divider>
+
+
+</p-card>

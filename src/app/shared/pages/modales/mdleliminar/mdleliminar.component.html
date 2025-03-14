@@ -1,0 +1,35 @@
+<p-dialog
+  [(visible)]="mdleliminar"
+  [closeOnEscape] ="false"
+  [closable] ="false"
+  >
+  <i  class="fa-solid fa-triangle-exclamation" style=" color: red;"></i> &nbsp;¿ éstas seguro, se perderá la información ?
+<ng-template pTemplate="footer">
+  <span class="p-buttonset">
+    <button
+     pTooltip="Confirma la Eliminacion."
+     tooltipPosition="bottom"
+      pButton
+      type="button"
+      (click)="OnEliminar()"
+       class="p-button-danger"
+       label="Eliminar"
+       icon="pi pi-trash">
+      </button>
+    &nbsp;
+    <button
+    pTooltip="Cancela la eliminacion."
+    tooltipPosition="bottom"
+    pButton
+    type="button"
+    (click)="OnCancelar()"
+     label="Cancel"
+     icon="pi pi-times">
+    </button>
+</span>
+</ng-template>
+</p-dialog>
+
+@if( ConfirmacionMdl == true  ) {
+  <confirmacion-mdl [ConfirmacionMdl]="ConfirmacionMdl" [ConfirmacionMsjMdl]="ConfirmacionMsjMdl" ></confirmacion-mdl>
+}

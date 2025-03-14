@@ -1,0 +1,180 @@
+
+@if( mdleliminar == true  ) {
+    <app-mdleliminar
+      [mdleliminar]="mdleliminar"
+      [_tabla]="tabla"
+      [_id]="_id"
+      (_rowconfirmacion)="eliminacion($event)"
+      />
+  }
+
+  @if( ConfirmacionMdl == true  ) {
+    <confirmacion-mdl [ConfirmacionMdl]="ConfirmacionMdl" [ConfirmacionMsjMdl]="ConfirmacionMsjMdl" ></confirmacion-mdl>
+  }
+
+<p-toast position="top-center" key="tc"></p-toast>
+
+<p-blockUI [blocked]="Ariesblocked"></p-blockUI>
+
+<form [formGroup]="frm" autocomplete="off">
+  <p-divider align="left">
+      <div class="inline-flex align-items-center">
+          <i class="pi pi-spin pi-cog"></i>
+          &nbsp; Información General:
+      </div>
+  </p-divider>
+  <div class="row">
+    <div class="col-sm-4">
+        <div class="flex flex-column gap-2">
+            <i class="pi pi-exclamation-circle"
+            >&nbsp; Estado:</i>
+            <p-dropdown
+              pTooltip="Selecciona: estatus a filtrar."
+              tooltipPosition="top"
+              formControlName="_id_"
+              placeholder="Seleccione Estatus"
+              value="id_estado"
+              [options]="lstEstus"
+              optionValue="id" optionLabel="descripcion"
+              >
+          </p-dropdown>
+            <p-message severity="error" text="Campo Es Obligatorio "
+                *ngIf="frm.controls['_id_'].invalid">
+             </p-message>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="flex flex-column gap-2">
+            <i class="pi pi-exclamation-circle">&nbsp; Fecha Inicial:</i>
+            <p-calendar 
+            pTooltip="selecciona fecha a filtrar."
+            tooltipPosition="top"
+            formControlName="_fecha_inicio"
+            [showIcon]="true" 
+            dateFormat="dd/mm/yy"
+            [readonlyInput]="true" 
+            [showOnFocus]="false" 
+            inputId="buttondisplay" />
+            <p-message severity="error" text="Campo Es Obligatorio "
+                *ngIf="frm.controls['_fecha_inicio'].invalid">
+             </p-message>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="flex flex-column gap-2">
+            <i class="pi pi-exclamation-circle">&nbsp; Fecha Final:</i>
+            <p-calendar 
+            pTooltip="selecciona una fecha a filtrar."
+            tooltipPosition="top"
+            formControlName="_fecha_final"
+            [showIcon]="true" 
+            dateFormat="dd/mm/yy"
+            [readonlyInput]="true" 
+            [showOnFocus]="false" 
+            inputId="buttondisplay" />
+            <p-message severity="error" text="Campo Es Obligatorio "
+                *ngIf="frm.controls['_fecha_final'].invalid">
+             </p-message>
+        </div>
+    </div>
+</div>
+  <br>
+  <p-button
+  icon="pi pi-plus"
+  label="Nuevo"
+  (click)="Nuevo()"
+  pTooltip="Generar una busqueda nueva."
+  tooltipPosition="bottom"
+  severity="success"
+  >
+  </p-button>
+  &nbsp;
+  <p-button
+      icon="pi pi-search"
+      pTooltip="Realizar busqueda."
+      tooltipPosition="bottom"
+      (click)="buscar()"
+      [disabled]="frm.invalid"
+      label="Buscar"
+      severity="info">
+      <p-progressSpinner *ngIf="BtnSpinner" styleClass="w-4rem h-4rem" strokeWidth="8"
+          fill="var(--surface-ground)" animationDuration=".5s">
+      </p-progressSpinner>
+  </p-button>
+  &nbsp;
+</form>
+<p-divider></p-divider>
+
+@if( busqueda != ""  ) {
+<div class="row">
+  <div class="col-sm-4">
+   
+  </div>
+  <div class="col-sm-4">
+    <h6>{{ busqueda }} </h6> 
+  </div>
+  <div class="col-sm-4">
+    <p-button
+    icon="pi pi-file-excel"
+    label="Excel"
+    (click)="exportExcel()"
+    pTooltip="Exportar Excel."
+    tooltipPosition="bottom"
+    severity="success"
+    >
+    </p-button>
+  </div>
+</div>
+}
+
+<p-divider></p-divider>
+  <p-table [value]="DataSource" dataKey="id"
+      [tableStyle]="{ 'min-width': '75rem' }"
+      [paginator]="true"
+      [rows]="10"
+      [rowsPerPageOptions]="[5,10,25]"
+      [paginator]="true">
+      <ng-template pTemplate="header">
+          <tr>
+              <th style="width: 4rem"></th>
+              <th style="width: 4rem"></th>
+              <th *ngFor="let column of DataSourceColumnas"
+              pSortableColumn="{{column}}">{{column}}<p-sortIcon
+                      field="{{column}}"></p-sortIcon></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-DataSource>
+          <tr>
+              <td>
+                <button
+                pTooltip="Modificar: Registro."
+                tooltipPosition="top"
+                (click)="selectRow(DataSource)"
+                pButton
+                icon="pi pi-file-edit"
+                type="button"
+                class="p-button-Info">
+              </button>
+              </td>
+              <td>
+                <button
+                  pTooltip="Eliminar: Registro."
+                  tooltipPosition="top"
+                  (click)="eliminarRow(DataSource)"
+                  pButton
+                  icon="pi pi-trash"
+                  type="button"
+                  class="p-button-danger">
+                </button>
+              </td>
+              <td *ngFor="let value of Obtenervalor(DataSource)">
+                <div [innerHTML]="value"></div>
+              </td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="8">No se encontraron registros.</td>
+          </tr>
+      </ng-template>
+  </p-table>

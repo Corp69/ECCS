@@ -1,0 +1,32 @@
+<div class="card flex flex-column align-items-center gap-2">
+    <p-dialog
+        [modal]="true"
+        [style]="{ 'min-width': '25vw' }"
+        [draggable]="false"
+        [resizable]="false"
+        [(visible)]="ConfirmacionMdl"
+        position="top"
+
+        >
+        <div class="row">
+            <div class="col-mb-4">
+                &nbsp;<br>
+               <!-- <b> {{ConfirmacionMsjMdl.titulo}} </b> -->
+               <b> ECCS - AriesERP </b>
+                <i *ngIf="ConfirmacionMsjMdl.msjTipo == 1" class="fa-solid fa-check fa-2xl" style=" color: green;">
+                </i>
+                <i *ngIf="ConfirmacionMsjMdl.msjTipo == 2" class="fa-solid fa-circle-exclamation fa-2xl"
+                    style=" color: orange;"></i>
+                <i *ngIf="ConfirmacionMsjMdl.msjTipo == 3" class="fa-solid fa-triangle-exclamation fa-2xl"
+                    style=" color: red;"></i>
+                <br>
+                {{ConfirmacionMsjMdl.mensaje}}
+            </div>
+            <div class="col-mb-4">
+                {{ConfirmacionMsjMdl.detalle}}
+            </div>
+        </div>
+        <br>
+        <hr>
+    </p-dialog>
+</div>

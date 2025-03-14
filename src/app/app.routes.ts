@@ -5,7 +5,7 @@ export const routes: Routes = [
   //= Login - Modulo  
   //========================================================================
     {
-      path: '',
+      path: 'login',
       loadChildren: () => import('./login/login.routes').then((m) => m.routes),
     },
   //========================================================================
@@ -21,7 +21,7 @@ export const routes: Routes = [
   // },
   {
     path: '**',
-    redirectTo: '/auth/registro',
+    redirectTo: '/eccs/principal/menu',
     pathMatch:  'full',
   }
 ];

@@ -1,0 +1,196 @@
+<p-blockUI [blocked]="Ariesblocked"></p-blockUI>
+<form [formGroup]="frmDomicilio" autocomplete="off">
+  <p-divider align="left">
+      <div class="inline-flex align-items-center">
+          <i class="pi pi-spin pi-cog"></i>
+          &nbsp; Información General:
+      </div>
+  </p-divider>
+
+  <div class="row">
+      <div class="col-sm-3">
+          <div class="flex flex-column gap-2">
+              <label>Calle:</label>
+              <input
+                  pInputText
+                  pTooltip="Ingrese Calle "
+                  tooltipPosition="bottom"
+                  formControlName="calle"
+                  pInputText
+                  placeholder="vacio" />
+              <p-message severity="error" text="Campo Es Obligatorio "
+                  *ngIf="frmDomicilio.controls['calle'].invalid">
+              </p-message>
+          </div>
+      </div>
+      <div class="col-sm-3">
+          <div class="flex flex-column gap-2">
+              <label>Numero Exterior</label>
+              <input
+                  pInputText
+                  pTooltip="Ingrese numero exterior de la calle."
+                  tooltipPosition="bottom"
+                  formControlName="num_ext"
+                  pInputText
+                  placeholder="vacio" />
+          <p-message severity="error" text="Campo Es Obligatorio "
+              *ngIf="frmDomicilio.controls['num_ext'].invalid">
+          </p-message>
+          </div>
+      </div>
+
+      <div class="col-sm-3">
+          <div class="flex flex-column gap-2">
+              <label>Numero Interior</label>
+              <input
+                  pTooltip="Ingrese numero interior. (Opcional)"
+                  tooltipPosition="bottom"
+                  formControlName="num_int"
+                  pInputText
+                  placeholder="vacio" />
+          </div>
+      </div>
+
+      <div class="col-sm-3">
+          <div class="flex flex-column gap-2">
+              <label>Codigo Postal</label>
+              <input
+                  pTooltip="Ingrese Codigo Postal"
+                  tooltipPosition="bottom"
+                  (ngModelChange)="onCp($event)"
+                  formControlName="cp"
+                  pInputText placeholder="vacio"
+                />
+                <p-message
+                  severity="error"
+                  text="Campo Es Obligatorio "
+                  *ngIf="frmDomicilio.controls['cp'].invalid">
+                </p-message>
+          </div>
+      </div>
+  </div>
+  <p-divider align="left">
+      <div class="inline-flex align-items-center">
+          <i class="pi pi-spin pi-cog"> </i>
+          &nbsp; configuraciones: Sat.
+      </div>
+  </p-divider>
+  <div class="flex flex-wrap gap-3">
+      <div class="flex align-items-center">
+          <p-inputGroup>
+              <p-inputGroupAddon
+               pTooltip="Seleccione Estado: filtrar la direccion por estado."
+               tooltipPosition="bottom" >
+                  <i class="pi pi-wrench">&nbsp; Estado:</i>
+              </p-inputGroupAddon>
+          </p-inputGroup>
+          <p-dropdown
+              formControlName="id_estado"
+              placeholder="Seleccione Estado"
+              value="id_estado"
+              [options]="lstEstados"
+              (onChange)="onEstado($event)"
+              optionValue="id" optionLabel="descripcion"
+              >
+          </p-dropdown>
+      </div>
+      <p-message severity="error" text="Campo Es Obligatorio "
+      *ngIf="frmDomicilio.controls['id_estado'].invalid">
+   </p-message>
+      <div class="flex align-items-center">
+          <p-inputGroup>
+              <p-inputGroupAddon
+              pTooltip="Seleccione Municipio: para filtrar la direccion del estado."
+              tooltipPosition="bottom" >
+                  <i class="pi pi-wrench">&nbsp; Municipio:</i>
+              </p-inputGroupAddon>
+          </p-inputGroup>
+          <p-dropdown
+              [options]="lstMunicipio"
+              value="id_municipio"
+              placeholder="seleccione un municipio"
+              formControlName="id_municipio"
+              optionValue="id"
+              optionLabel="descripcion"
+          >
+      </p-dropdown>
+      </div>
+      <p-message severity="error" text="Campo Es Obligatorio "
+      *ngIf="frmDomicilio.controls['id_municipio'].invalid">
+      </p-message>
+      <div class="flex align-items-center">
+          <p-inputGroup>
+              <p-inputGroupAddon
+              pTooltip="Seleccione localidad: para filtrar la direccion de municipio."
+              tooltipPosition="bottom" >
+                  <i class="pi pi-wrench">&nbsp; localidad:</i>
+              </p-inputGroupAddon>
+          </p-inputGroup>
+          <p-dropdown
+              [options]="lstLocalidad"
+              value="id_localidad"
+              placeholder="seleccione una localidad"
+              formControlName="id_localidad"
+              optionValue="id"
+              optionLabel="descripcion"
+          >
+      </p-dropdown>
+      </div>
+      <p-message severity="error" text="Campo Es Obligatorio "
+      *ngIf="frmDomicilio.controls['id_localidad'].invalid">
+      </p-message>
+      <div class="flex align-items-center">
+          <p-inputGroup>
+              <p-inputGroupAddon
+              pTooltip="Seleccione Colonia: para filtrar la CP con Colonia."
+              tooltipPosition="bottom" >
+                  <i class="pi pi-wrench">&nbsp; Colonia:</i>
+              </p-inputGroupAddon>
+          </p-inputGroup>
+          <p-dropdown
+              [options]="lstColonia"
+              value="id_colonia"
+              placeholder="seleccione Colonia"
+              formControlName="id_colonia"
+              optionValue="id"
+              optionLabel="descripcion"
+          >
+      </p-dropdown>
+      </div>
+      <p-message severity="error" text="Campo Es Obligatorio "
+      *ngIf="frmDomicilio.controls['id_colonia'].invalid">
+      </p-message>
+  </div>
+  <br>
+  <p-button
+  icon="pi pi-plus"
+  label="Nuevo"
+  (click)="Nuevo()"
+  pTooltip="Almacenar: Proveedor Informcion."
+  tooltipPosition="bottom"
+  severity="success"
+  >
+  </p-button>
+  &nbsp;
+  <p-button
+      icon="pi pi-pencil"
+      pTooltip="Almacenar: Proveedor Informcion."
+      tooltipPosition="bottom"
+      (click)="Almacenar()"
+      [disabled]="frmDomicilio.invalid"
+      label="Guardar"
+      severity="info">
+      <p-progressSpinner *ngIf="BtnSpinner" styleClass="w-4rem h-4rem" strokeWidth="8"
+          fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+  </p-button>
+  &nbsp;
+</form>
+
+<p-toast position="top-center" key="tc"></p-toast>
+
+@if( ConfirmacionMdl == true  ) {
+  <confirmacion-mdl [ConfirmacionMdl]="ConfirmacionMdl" [ConfirmacionMsjMdl]="ConfirmacionMsjMdl" ></confirmacion-mdl>
+}
+
+<aries-table-domicilios  [reloadTrigger]="reloadTrigger"  [_tabla]="tabla" [fn]="fn" [sc]="sc"  (_frm)="Modificar($event)" />
+

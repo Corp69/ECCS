@@ -1,0 +1,16 @@
+<p-dialog [(visible)]="Visible" position="top">
+    <p-card [style]="{ width: '260px' }">
+        <p-fieldset>
+            <ng-template pTemplate="header">
+                <div class="flex align-items-center gap-2 px-2">
+                    <span class="font-bold">Aries Info.</span>
+                </div>
+            </ng-template>
+            <div style="text-align: center;">
+                <p-progressSpinner ariaLabel="loading"></p-progressSpinner>
+                <br>
+                <p-chip label="Cargando..." icon="pi pi-sync"></p-chip>
+            </div>
+        </p-fieldset>
+    </p-card>
+</p-dialog>

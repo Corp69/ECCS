@@ -3,8 +3,18 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@shared/*":[
+        "./src/app/shared/*"
+      ],
+      "@environments":[
+        "../../../../../../environments/environment.ts"
+      ]
+    },
+
+
     "outDir": "./dist/out-tsc",
-    "strict": true,
+    "strict": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
