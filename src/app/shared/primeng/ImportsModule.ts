@@ -54,7 +54,6 @@ import { AnimateOnScrollModule } from 'primeng/animateonscroll';
     AnimateOnScrollModule ,
     ProgressBarModule
 
-
   ],
   exports: [
       //prime ng

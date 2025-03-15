@@ -1,0 +1,142 @@
+<p-blockUI [blocked]="EccsBlock"></p-blockUI>
+<p-toast position="top-center" key="tc"></p-toast>
+
+<p-fluid>
+    <div class="flex flex-col md:flex-row gap-1">
+      <!-- Configuraciones -->
+      <div class="md:w-1/4">
+        <!-- Tip -->
+        <p-panel header="Info:" class="flex flex-col gap-4 m-4 ">
+          <div class="inline-flex align-items-center ">
+                <span class="text-lg font-semibold">
+                    Scorpio XL - Fecha de lanzamiento 1/Abril/2025
+                </span>
+          </div>
+        </p-panel>
+        <!-- ------------------------------------------------------------------- -->
+        <!-- Modal scorpio tip 2 -->
+        <p-panel header="Info:" class="flex flex-col gap-4 m-4">
+          <div class="inline-flex align-items-center">
+            <span class="text-lg font-semibold">
+                * Descarga masiva de XML. en 24/7
+                <br>Plataforma Disponibles:
+                <br>
+                <br> Android | IOS | Web | Escritorio
+            </span>
+        </div>
+        </p-panel>
+        <!-- ------------------------------------------------------------------- -->
+        <!-- Modal scorpio tip certificados -->
+        <p-panel header=" Scorpio XL - Funcionalidades " class="flex flex-col gap-4 m-4">
+          <div class="inline-flex align-items-center">
+            <p class="text-lg font-semibold">
+             - Descarga XML 
+             - Envia por correo <br>
+             - Exporta formatos: word pdf excel<br>
+             - Optimiza la gestión fiscal, automatización, Sincronización y Descarga de los CFDIs.
+             <br>
+             <br>
+             - Soporte Técnico.. +52 4651068560
+            </p>
+          </div>
+        </p-panel>
+        <!-- ------------------------------------------------------------------- -->
+        <!-- Modal Historial de peticiones -->
+            <!-- video promocional -->
+        <!-- ------------------------------------------------------------------- -->
+      </div>
+      <!-- ------------------------------------------------------------------- -->
+      <!-- Formulario -->
+      <div class="md:w-1/2">
+        <p-panel header="Solicitar Servicio." class="flex flex-col gap-4 m-4">
+          <form [formGroup]="frm" autocomplete="off">
+            <div class="flex flex-col gap-2">
+                <span for="nombrecomercial" class="block text-surface-900 dark:text-surface-0 font-medium text-lg"> Razón Social:</span>
+                <input
+                    id="nombrecomercial"
+                    type="text"
+                    maxlength="50"
+                    pInputText
+                    pTooltip="Ingrese nombre de la persona fisica o moral"
+                    tooltipPosition="bottom"
+                    formControlName="nombrecomercial"
+                    placeholder="Vacio"
+                />
+                <p-message severity="error" text="Campo Es Obligatorio "
+                    *ngIf="frm.controls['nombrecomercial'].invalid">
+                </p-message>
+            </div>
+          
+          
+           
+
+
+            <!-- Botones Crud -->
+            <p-divider align="center">
+                <div class="inline-flex align-items-center">
+                    <i class="pi pi-user mr-2"></i>
+                    <b>Funciones Usuario:</b>
+                </div>
+            </p-divider>
+            <div class="flex flex-wrap gap-6">
+                <div class="flex flex-col grow basis-0 gap-2">
+                    <p-button
+                        (click)="Nuevo()"
+                        icon="pi pi-plus"
+                        label="Nuevo"
+                        pTooltip="clic para Nuevo registro"
+                        tooltipPosition="bottom"
+                        [outlined]="true"
+                    />
+                </div>
+                <div class="flex flex-col grow basis-0 gap-2">
+                    <p-button
+                        label="Guardar"
+                        pTooltip="clic para Almacena Informcion."
+                        tooltipPosition="bottom"
+                        (click)="Almacenar()"
+                        [disabled]="frm.invalid"
+                        icon="pi pi-save"
+                        severity="help"
+                         severity="info"
+                        [outlined]="true"
+                    >
+                        <p-progressSpinner
+                            *ngIf="BtnSpinner"
+                            styleClass="w-4rem h-4rem"
+                            strokeWidth="8"
+                            fill="var(--surface-ground)"
+                            animationDuration=".5s"
+                        >
+                        </p-progressSpinner>
+                    </p-button>
+                </div>
+            </div>
+        </form>
+        </p-panel>
+      </div>
+      <!-- ------------------------------------------------------------------- -->
+      <!-- Informacion Adicional -->
+      <div class="md:w-1/4">
+       
+        <!-- ------------------------------------------------------------------- -->
+        <!-- Modal Crear una peticion -->
+        <p-panel header="Crear Peticion De Descarga XML." class="flex flex-col gap-4 m-4">
+          <div class="inline-flex align-items-center">
+            <p-button
+              icon="pi pi-sync"
+              label="Generar una solicitud de descarga XML."
+             
+              pTooltip="clic para crear una solicitud de descarga XML."
+              tooltipPosition="bottom"
+              [outlined]="true"
+            />
+          </div>
+          <p-divider></p-divider>
+          <span class="text-lg font-semibold">- Crear Peticiones una vez completos tus certificados.</span>
+        </p-panel>
+        <!-- ------------------------------------------------------------------- -->
+      </div>
+      <!-- ------------------------------------------------------------------- -->
+    </div>
+</p-fluid>
