@@ -1,112 +1,167 @@
 <div class="card flex flex-col items-center overflow-hidden">
+    <h4 style="font-size: 24px; font-family: 'Arial', sans-serif; color: #2C3E50; font-weight: bold; text-align: center; padding: 10px 0; border-bottom: 2px solid #2980B9; margin-bottom: 20px;">
+        PLATAFORMAS
+    </h4>
     <div class="h-[5rem]"></div>
-            <div class="flex flex-wrap justify-center gap-5">
-
-
-                <div 
-                    pTooltip="click para ver más | ELA." 
-                    tooltipPosition="top"  
-                    (click)="Ira('ela')" 
-                    leaveClass="animate-leave fade-out-0"
-                    class="flex flex-col border border-surface shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4  border-animated "
-                >
-                    <div class="rounded-full bg-primary text-primary-contrast w-12 h-12 flex items-center justify-center">
-                        <i class="pi pi-spin pi-cog !text-2xl"></i>
-                    </div>
-                    <span class="text-2xl font-bold">ELA</span>
-                    <span class="text-2xl font-bold">Asistente IA.</span>
-                    <span class="text-muted-color text-center">PROXIMANENTE.</span><ol class="text-muted-color text-center">
-                        <li>° Android</li>
-                        <li>° IOS</li>
-                        <li>° WEB</li>
-                        <li>° Escritorio</li>
-                    </ol>
+        <!-- ELA | Scorpio XL | AriesERP RECUADRO -->
+        <div class="flex flex-wrap justify-center gap-5">
+            <div 
+                pTooltip="click para ver más | ELA." 
+                tooltipPosition="top"  
+                (click)="VisibleEla = true" 
+                leaveClass="animate-leave fade-out-0"
+                class="flex flex-col border border-surface shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4  border-animated "
+            >
+                <div class="rounded-full bg-primary text-primary-contrast w-12 h-12 flex items-center justify-center">
+                    <i class="pi pi-spin pi-cog !text-2xl"></i>
                 </div>
-
-                <div 
-                    pTooltip="click para ver más | Scorpio XL." 
-                    tooltipPosition="top"  
-                    (click)="Ira('scorpioxl')" 
-                    leaveClass="animate-leave fade-out-0"
-                    class="flex flex-col border border-surface shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4  border-animated "
-                >
-                    <div class="rounded-full bg-primary text-primary-contrast w-12 h-12 flex items-center justify-center">
-                        <i class="pi pi-check-circle !text-2xl"></i>
-                    </div>
-                    <span class="text-2xl font-bold">Scorpio XL.</span>
-                    <span class="text-2xl font-bold">Descarga Masiva XML. </span>
-                    <span class="text-muted-color text-center">ACCESO ANTICIPADO.</span><ol class="text-muted-color text-center">
-                        <li>° Android</li>
-                        <li>° IOS</li>
-                        <li>° WEB</li>
-                        <li>° Escritorio</li>
-                    </ol>
-                </div>
-
-                <div
-                    pTooltip="click para ver más | AriesERP." 
-                    tooltipPosition="top"  
-                    (click)="Ira('arieserp')" 
-                    leaveClass="animate-leave fade-out-0"
-                    class="flex flex-col border border-surface shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4  border-animated "
-                >
-                    <div   class="rounded-full bg-primary text-primary-contrast w-12 h-12 flex items-center justify-center">
-                        <i class="pi pi-spin pi-cog !text-2xl"></i>
-                    </div>
-                    <span class="text-2xl font-bold">AriesERP.</span>
-                    <span class="text-2xl font-bold">Gestiona tu contabilidad.</span>
-                    <span class="text-muted-color text-center">PROXIMAMENTE.</span><ol class="text-muted-color text-center">
-                        <li>° Android</li>
-                        <li>° IOS</li>
-                        <li>° WEB</li>
-                        <li>° Escritorio</li>
-                    </ol>
-                </div>
-
+                <span class="text-2xl font-bold">ELA</span>
+                <span class="text-2xl font-bold">Asistente IA.</span>
+                <span class="text-muted-color text-center">PROXIMANENTE.</span><ol class="text-muted-color text-center">
+                    <li>° Android</li>
+                    <li>° IOS</li>
+                    <li>° WEB</li>
+                    <li>° Escritorio</li>
+                </ol>
             </div>
-    <div class="h-[5rem]"></div>
-    <div class="flex flex-wrap justify-center gap-5">
-        <div
-            class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4  border-animated"
-        >
-            <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" size="xlarge" />
-            <span class="text-2xl font-medium">Jenna Thompson</span>
-            <span class="text-muted-color text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-        </div>
 
+            <div 
+                pTooltip="click para ver más | Scorpio XL." 
+                tooltipPosition="top"  
+                (click)="Ira('scorpioxl')" 
+                leaveClass="animate-leave fade-out-0"
+                class="flex flex-col border border-surface shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4  border-animated "
+            >
+                <div class="rounded-full bg-primary text-primary-contrast w-12 h-12 flex items-center justify-center">
+                    <i class="pi pi-check-circle !text-2xl"></i>
+                </div>
+                <span class="text-2xl font-bold">Scorpio XL.</span>
+                <span class="text-2xl font-bold">Descarga Masiva XML. </span>
+                <span class="text-muted-color text-center">ACCESO ANTICIPADO.</span><ol class="text-muted-color text-center">
+                    <li>° Android</li>
+                    <li>° IOS</li>
+                    <li>° WEB</li>
+                    <li>° Escritorio</li>
+                </ol>
+            </div>
+
+            <div
+                pTooltip="click para ver más | AriesERP." 
+                tooltipPosition="top"  
+                (click)="VisibleAriesERP = true" 
+                leaveClass="animate-leave fade-out-0"
+                class="flex flex-col border border-surface shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4  border-animated "
+            >
+                <div   class="rounded-full bg-primary text-primary-contrast w-12 h-12 flex items-center justify-center">
+                    <i class="pi pi-spin pi-cog !text-2xl"></i>
+                </div>
+                <span class="text-2xl font-bold">AriesERP.</span>
+                <span class="text-2xl font-bold">Gestiona tu contabilidad.</span>
+                <span class="text-muted-color text-center">PROXIMAMENTE.</span><ol class="text-muted-color text-center">
+                    <li>° Android</li>
+                    <li>° IOS</li>
+                    <li>° WEB</li>
+                    <li>° Escritorio</li>
+                </ol>
+            </div>
+
+        </div>
+    <div class="h-[5rem]"></div>
+    <h4 style="font-size: 24px; font-family: 'Arial', sans-serif; color: #2C3E50; font-weight: bold; text-align: center; padding: 10px 0; border-bottom: 2px solid #2980B9; margin-bottom: 20px;">
+        DEVELOPERS
+    </h4>
+    <br>
+    <br>
+        <!-- Equipo de desarrollo  -->
+        <div class="flex flex-wrap justify-center gap-5">
+            
         <div  class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4  border-animated ">
-            <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" shape="circle" size="xlarge" />
-            <span class="text-2xl font-medium">Isabel Garcia</span>
+            <p-avatar 
+                image="https://primefaces.org/cdn/primeng/images/demo/avatar/onyamalimba.png" 
+                shape="circle" 
+                size="xlarge" 
+            />
+            <span class="font-medium">JOSE RICARDO PIZAÑA DE SANTIAGO.</span>
             <span class="text-muted-color text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
         </div>
         <div class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4  border-animated">
-            <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/onyamalimba.png" shape="circle" size="xlarge" />
-            <span class="text-2xl font-medium">Xavier Mason</span>
+            <p-avatar 
+                image="https://primefaces.org/cdn/primeng/images/demo/avatar/onyamalimba.png" 
+                shape="circle" 
+                size="xlarge" 
+            />
+            <span class="font-medium">ERICK XANDER ESPARZA NAVARRO.</span>
             <span class="text-muted-color text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
         </div>
-    </div>
+
+        </div>
+    
+        <!--  rendimientos  u operaciones  -->
     <div class="h-[10rem]"></div>
-    <div class="flex flex-wrap justify-center gap-8">
-        <div  class="flex flex-col bg-purple-500 text-white border-purple-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
-            <div class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center">
-                <i class="pi pi-wifi !text-2xl"></i>
+        <!--  -->
+        <div class="flex flex-wrap justify-center gap-8">
+            <div  class="flex flex-col bg-purple-500 text-white border-purple-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
+                <div class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center">
+                    <i class="pi pi-wifi !text-2xl"></i>
+                </div>
+                <span class="text-2xl font-bold">Conectividad</span>
+                <span class="text-center">24/7 sin limite de acceso.</span>
             </div>
-            <span class="text-2xl font-bold">Bandwidth</span>
-            <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-        </div>
-        <div class="flex flex-col bg-teal-500 text-white border-teal-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
-            <div class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center">
-                <i class="pi pi-database !text-2xl"></i>
+            <div class="flex flex-col bg-teal-500 text-white border-teal-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
+                <div class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center">
+                    <i class="pi pi-database !text-2xl"></i>
+                </div>
+                <span class="text-2xl font-bold">Almacenamiento</span>
+                <span class="text-center">° Libre en cuanto a fase de pruebas.</span>
             </div>
-            <span class="text-2xl font-bold">Storage</span>
-            <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-        </div>
-        <div  class="flex flex-col bg-indigo-500 text-white border-indigo-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
-            <div class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center">
-                <i class="pi pi-arrows-v !text-2xl"></i>
+            <div  class="flex flex-col bg-indigo-500 text-white border-indigo-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
+                <div class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center">
+                    <i class="pi pi-arrows-v !text-2xl"></i>
+                </div>
+                <span class="text-2xl font-bold">Accesibilidad</span>
+                <span class="text-center">° Libre en cuanto usuarios.</span>
+                <span class="text-center">° WEB | Android | IOS | DESKTOP.</span>
             </div>
-            <span class="text-2xl font-bold">Requests</span>
-            <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-        </div>
     </div>
 </div>
+
+
+<!-- AriesERP  -->
+<p-dialog 
+    header="ECCS - Info." 
+    [(visible)]="VisibleAriesERP" 
+    [modal]="true" 
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" 
+    [style]="{ width: '50vw' }" 
+    [draggable]="false" 
+    [resizable]="false"
+>
+<p style="font-size: 16px; font-family: Arial, sans-serif; color: #333; background-color: #f8f8f8; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+    <strong>AriesERP</strong> se encuentra actualmente en desarrollo. 
+    <br><br> La <strong>próxima actualización</strong> estará disponible el <strong>1 de mayo de 2025</strong>.
+    <br><br>Agradecemos tu paciencia y te invitamos a estar atento a las mejoras que se implementarán.
+</p>
+</p-dialog>
+
+
+<!-- ELA IA  -->
+<p-dialog 
+    header="ECCS - Info." 
+    [(visible)]="VisibleEla" 
+    [modal]="true" 
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" 
+    [style]="{ width: '50vw' }" 
+    [draggable]="false" 
+    [resizable]="false"
+>
+<p style="font-size: 16px; font-family: Arial, sans-serif; color: #333; background-color: #f8f8f8; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+    <strong>Asistente ELA IA.</strong> se encuentra actualmente en desarrollo. 
+    <br><br> La <strong>próxima actualización</strong> estará disponible el <strong>1 de Octubre de 2025</strong>.
+    <br><br>Agradecemos tu paciencia y te invitamos a estar atento a las mejoras que se implementarán.
+    <br><br>ELA estará integrada en Scorpio XL & AriesERP | Asi como de forma individual para moviles.
+</p>
+</p-dialog>
+
+
+
+

@@ -25,22 +25,6 @@
             </span>
         </div>
         </p-panel>
-        <!-- ------------------------------------------------------------------- -->
-        <!-- Modal scorpio tip certificados -->
-        <p-panel header=" Scorpio XL - Funcionalidades " class="flex flex-col gap-4 m-4">
-          <div class="inline-flex align-items-center">
-            <p class="text-lg font-semibold">
-             - Descarga XML 
-             - Envia por correo <br>
-             - Exporta formatos: word pdf excel<br>
-             - Optimiza la gestión fiscal, automatización, Sincronización y Descarga de los CFDIs.
-             <br>
-             <br>
-             - Soporte Técnico.. +52 4651068560
-            </p>
-          </div>
-        </p-panel>
-        <!-- ------------------------------------------------------------------- -->
         <!-- Modal Historial de peticiones -->
             <!-- video promocional -->
         <!-- ------------------------------------------------------------------- -->
@@ -49,28 +33,73 @@
       <!-- Formulario -->
       <div class="md:w-1/2">
         <p-panel header="Solicitar Servicio." class="flex flex-col gap-4 m-4">
+          @if ( visibleForm == true ) {
+            
           <form [formGroup]="frm" autocomplete="off">
             <div class="flex flex-col gap-2">
-                <span for="nombrecomercial" class="block text-surface-900 dark:text-surface-0 font-medium text-lg"> Razón Social:</span>
+                <span for="nombre_comercial" class="block text-surface-900 dark:text-surface-0 font-medium text-lg"> Razón Social:</span>
                 <input
-                    id="nombrecomercial"
+                    id="nombre_comercial"
                     type="text"
-                    maxlength="50"
+                    maxlength="70"
                     pInputText
                     pTooltip="Ingrese nombre de la persona fisica o moral"
                     tooltipPosition="bottom"
-                    formControlName="nombrecomercial"
+                    formControlName="nombre_comercial"
                     placeholder="Vacio"
                 />
                 <p-message severity="error" text="Campo Es Obligatorio "
-                    *ngIf="frm.controls['nombrecomercial'].invalid">
+                    *ngIf="frm.controls['nombre_comercial'].invalid">
                 </p-message>
             </div>
-          
-          
-           
-
-
+            <div class="flex flex-col gap-2">
+                <span for="rfc" class="block text-surface-900 dark:text-surface-0 font-medium text-lg">RFC:</span>
+                <input
+                    id="rfc"
+                    type="text"
+                    maxlength="13"
+                    pInputText
+                    pTooltip="Ingrese el RFC"
+                    tooltipPosition="bottom"
+                    formControlName="rfc"
+                    placeholder="Vacio"
+                />
+                <p-message severity="error" text="Campo Es Obligatorio "
+                    *ngIf="frm.controls['rfc'].invalid">
+                </p-message>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span for="correo" class="block text-surface-900 dark:text-surface-0 font-medium text-lg">Correo:</span>
+                <input
+                    id="correo"
+                    type="text"
+                    maxlength="50"
+                    pInputText
+                    pTooltip="Ingrese un correo de contacto."
+                    tooltipPosition="bottom"
+                    formControlName="correo"
+                    placeholder="Vacio"
+                />
+                <p-message severity="error" text="Campo Es Obligatorio "
+                    *ngIf="frm.controls['correo'].invalid">
+                </p-message>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span for="telefono" class="block text-surface-900 dark:text-surface-0 font-medium text-lg">Tel. Contacto:</span>
+                <p-inputnumber
+                      id="telefono"
+                      inputId="integeronly"
+                      maxlength="10"
+                      [useGrouping]="false"
+                      pTooltip="Ingrese un numero de telefono o contacto celular."
+                      tooltipPosition="bottom"
+                      formControlName="telefono"
+                      placeholder="Telefono | Celular"
+                  />
+                <p-message severity="error" text="Campo Es Obligatorio "
+                    *ngIf="frm.controls['telefono'].invalid">
+                </p-message>
+            </div>
             <!-- Botones Crud -->
             <p-divider align="center">
                 <div class="inline-flex align-items-center">
@@ -112,31 +141,50 @@
                     </p-button>
                 </div>
             </div>
-        </form>
-        </p-panel>
-      </div>
-      <!-- ------------------------------------------------------------------- -->
-      <!-- Informacion Adicional -->
-      <div class="md:w-1/4">
-       
-        <!-- ------------------------------------------------------------------- -->
-        <!-- Modal Crear una peticion -->
-        <p-panel header="Crear Peticion De Descarga XML." class="flex flex-col gap-4 m-4">
-          <div class="inline-flex align-items-center">
+          </form>
+        }@else {
+          <p-progressBar mode="indeterminate" [style]="{'height': '15px'}"></p-progressBar>
+          <br><br>
+          <i class="pi pi-user mr-2"></i>
+          <br>
+            <div class="inline-flex align-items-center">
+              
+                <p style="font-size: 16px; font-family: Arial, sans-serif; color: #333;">
+                  Un <strong>agente de operaciones</strong> se encuentra <strong>procesando su información</strong> en este momento.  <br> <br>Le solicitamos amablemente que espere mientras finalizamos el proceso.
+                  <br><br>
+                  Le recomendamos estar atento a su correo electrónico y número de contacto. 
+                  <br><br>ECCS le desea un excelente día.
+              </p>
+            </div>
+            <br>
             <p-button
-              icon="pi pi-sync"
-              label="Generar una solicitud de descarga XML."
-             
-              pTooltip="clic para crear una solicitud de descarga XML."
-              tooltipPosition="bottom"
-              [outlined]="true"
-            />
+            (click)="Home()"
+            icon="pi pi-plus"
+            label="Home"
+            tooltipPosition="bottom"
+            [outlined]="true"
+        />
+        
+        }
+
+
+        </p-panel>
+      </div>
+        <!-- ------------------------------------------------------------------- -->
+        <!-- Modal scorpio tip certificados -->
+        <p-panel header=" Scorpio XL - Funcionalidades " class="flex flex-col gap-4 m-4">
+          <div class="inline-flex align-items-center">
+            <p class="text-lg font-semibold">
+             - Descarga XML 
+             - Envia por correo <br>
+             - Exporta formatos: word pdf excel<br>
+             - Optimiza la gestión fiscal, automatización, Sincronización y Descarga de los CFDIs.
+             <br>
+             <br>
+             - Soporte Técnico.. +52 4651068560
+            </p>
           </div>
-          <p-divider></p-divider>
-          <span class="text-lg font-semibold">- Crear Peticiones una vez completos tus certificados.</span>
         </p-panel>
         <!-- ------------------------------------------------------------------- -->
-      </div>
-      <!-- ------------------------------------------------------------------- -->
     </div>
 </p-fluid>

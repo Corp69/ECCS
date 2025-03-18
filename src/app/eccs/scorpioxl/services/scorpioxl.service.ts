@@ -3,7 +3,7 @@ import { Injectable, computed, effect, inject, signal } from '@angular/core';
 import { Observable, Subject, catchError, map, of, tap, throwError } from 'rxjs';
 
 import { environment } from '../../../../environments/environment';
-import { MdlUser } from '../Models/MdlUser';
+import { MdlScorpioXL } from '../Models/MdlScorpioXL';
 import { ErroresService } from '@shared/errores.service';
 import { StorageService } from '@shared/services/Storage.service';
 
@@ -37,7 +37,7 @@ export class ScorpioXLService {
   private initialized = false;
   //==============================================================================================================
   //modelos:
-  public MdlUser: MdlUser = new MdlUser();
+  public MdlScorpioXL: MdlScorpioXL = new MdlScorpioXL();
 
   constructor(
       private StorageService: StorageService,
@@ -63,6 +63,21 @@ export class ScorpioXLService {
     });
     }
 
+  public Registro(modelo: MdlScorpioXL ): Observable<any> {
+    return this.http
+      .post(`${environment.baseUrl}auth/prospecto`, modelo)
+      .pipe(
+        catchError(error => {
+          console.log(  error );
+          return throwError(this.errores.getErrores(error));
+        })
+      );
+  }
+
+
+
+
+
   public onConfigUpdate() {
       this._config = { ...this.layoutConfig() };
       this.configUpdate.next(this.layoutConfig());
@@ -78,7 +93,7 @@ export class ScorpioXLService {
   }
 
 
-  public IniciarSesion(modelo: MdlUser): Observable<any> {
+  public IniciarSesion(modelo: MdlScorpioXL): Observable<any> {
     return this.http
       .post(`${environment.baseUrl}auth/login`, modelo)
       .pipe(
@@ -89,17 +104,7 @@ export class ScorpioXLService {
   }
 
 
-  public checkAuthentication(): Observable<boolean> {
-    this.MdlUser.set_tokken(this.StorageService.getItem('token') !== null ? this.StorageService.getItem('token') : "");
-    const token = this.MdlUser.get_tokken();
-    if (!token) return of(false);
 
-    const tokenObject = { "token": token };
-    return this.http.post(`${environment.baseUrl}auth/token`, tokenObject).pipe(
-      map((user: any) => !!user),
-      catchError(err => of(false))
-    );
-  }
 
   //animacion de cambio de color
   private handleDarkModeTransition(config: layoutConfig): void {
