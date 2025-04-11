@@ -1,0 +1,71 @@
+<div
+  class="bg-surface-50 dark:bg-surface-950 flex items-center justify-center min-h-screen min-w-[100vw] overflow-hidden">
+  <div class="flex flex-col items-center justify-center z-10"> <!-- Aseguramos que el formulario esté encima -->
+    <!-- Contenedor de la lluvia -->
+    <div class="rain"> <!-- Aseguramos que la lluvia esté en el fondo -->
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+      <div class="raindrop"></div>
+    </div>
+
+    <div class="login-inicio-session">
+      <p-blockUI [blocked]="EccsBlock"></p-blockUI>
+      @if( EccsBlock == true ) {
+      <app-carga />
+      }
+
+      <div class="w-full bg-surface-0 dark:bg-surface-900 py-20 px-8 sm:px-20" style="border-radius: 90px">
+        <div class="text-center mb-2">
+          <img ngSrc="icons/logo.png" alt="Descripción de la imagen" width="300" height="300">
+          <div class="text-surface-900 dark:text-surface-0 text-3xl font-medium mb-2">Bienvenido a ECCS !</div>
+          <span class="text-muted-color font-medium">Inicia Sesión Para Continuar</span>
+        </div>
+
+        <form [formGroup]="formLogin" autocomplete="off" class="text-center">
+          <label for="Usuario"
+            class="block text-surface-900 dark:text-surface-0 text-xl font-medium mb-2">Usuario</label>
+          <input id="Usuario" name="Usuario" class="w-full md:w-[30rem] mb-2" type="text"
+            pTooltip="Ingrese Usuario: tu usuario debe estar activo y tener permisos." tooltipPosition="bottom"
+            formControlName="usuario" pInputText class="p-inputtext-lg" pKeyFilter="alphanum" pInputText
+            placeholder="ingresar usuario" />
+
+          <span for="password1"
+            class="block text-surface-900 dark:text-surface-0 font-medium text-xl mb-2">Password</span>
+          <p-password id="password1" name="password1" placeholder="Password" [toggleMask]="true" styleClass="mb-4"
+            [fluid]="true" [feedback]="false" pTooltip="Ingrese Pass: tu pass debe estar activa."
+            tooltipPosition="bottom" formControlName="pass">
+          </p-password>
+          <p-button styleClass="w-full" [disabled]="formLogin.invalid" (click)="onSave()" pTooltip="Ingresar Al Portal."
+            icon="pi pi-sign-out" label="Ingresar" tooltipPosition="bottom" />
+
+          <p-divider></p-divider>
+        </form>
+        <div class="layout-footer">
+          <span>©2025 CopyRight</span>
+          <a href="https://eccs.arieserp.com.mx/AriesERP/principal" target="_blank" rel="noopener noreferrer"
+            class="text-primary font-bold hover:underline">ECCS.</a>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+@if( ConfirmacionMdl == true ) {
+<confirmacion-mdl [ConfirmacionMdl]="ConfirmacionMdl" [ConfirmacionMsjMdl]="ConfirmacionMsjMdl"></confirmacion-mdl>
+}

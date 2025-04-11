@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { PrincipalComponent } from './principal/principal.component';
-import { ScorpioxlComponent } from './scorpioxl/scorpioxl.component';
 
 export const routes: Routes = [
   {
@@ -23,8 +22,6 @@ export const routes: Routes = [
          path: 'objetivo',
          loadComponent: () => import('./contacto/objetivo/objetivo.component').then((m) => m.ObjetivoComponent),
        },
-
-
       {
         path: 'scorpioxl',
         title: 'ECCS - Scorpio XL - 2025',
@@ -42,12 +39,6 @@ export const routes: Routes = [
         title: 'ECCS - ELA | OpenIA - 2025',
         loadComponent: () => import('./ela/ela.component').then((m) => m.ElaComponent),
       },
-
-
-
-
-
-
       {
         path: '**',
         redirectTo: '/eccs/principal/menu',

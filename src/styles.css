@@ -1,26 +1,2 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
-
-
-
-.border-animated {
-    border: 1px solid #40E0D0; /* Verde turquesa */
-    border-radius: 10px; /* Bordes más redondeados */
-    padding: 10px;
-    transition: border-color 2s ease-in-out, border-radius 2s ease-in-out;
-  }
-  
-  @keyframes borderColorChange {
-    0%   { border-color: #40E0D0; } /* Turquesa */
-    25%  { border-color: #3341ff; } /* Naranja */
-    50%  { border-color: #ff0077; } /* Dorado */
-    75%  { border-color: #8A2BE2; } /* Azul Violeta */
-    100% { border-color: #40E0D0; } /* Vuelve a Turquesa */
-  }
-  
-  .border-animated:hover {
-    border: 1px solid #40E0D0; /* Color inicial */
-    border-radius: 10px; /* Bordes más redondeados */
-    padding: 10px;
-    animation: borderColorChange 3s infinite alternate;
-  }
